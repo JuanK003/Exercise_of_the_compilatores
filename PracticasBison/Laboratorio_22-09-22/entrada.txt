@@ -1,0 +1,6 @@
+const int PI = 5;
+#define PI 5
+const float NUM = 5.5;
+const float NUM =  ;
+#define float NUM = 5.5;
+const int CONSTANTE = 1;
