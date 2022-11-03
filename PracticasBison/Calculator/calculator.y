@@ -7,7 +7,6 @@ int yylex();
 
 %union{
     int nint;
-    float nfloat;
 }
 
 %token SUMA RESTA MULT DIV
@@ -22,14 +21,14 @@ int yylex();
 inicio  :   expresion EOL {printf("=%i", $1);}
         ;
 
-expresion   :   expresion SUMA termino { $$ = $1 + $2;  }
-            |   expresion RESTA termino { $$ = $1 - $2;  }
+expresion   :   expresion SUMA termino { $$ = $1 + $3;  }
+            |   expresion RESTA termino { $$ = $1 - $3;  }
             |   termino
             ;
 
 termino     :   termino MULT factor { $$ = $1 * $3;  }
             |   termino DIV factor { $$ = $1 / $3;  }
-            |   factor
+            |   factor  {$$ = $1; }
             ;
 
 factor      :   ENTERO

@@ -1,5 +1,5 @@
 %{
-    #include "calc.tab.h"
+#include "calculator.tab.h"
 %}
 
 %%
@@ -7,8 +7,8 @@
 "-"         {return RESTA;}
 "*"         {return MULT;}
 "/"         {return DIV;}
-[0-9]+      { yylval = atoi(yytext); return ENTERO;}
+[0-9]+      { yylval.nint=atoi(yytext);}
 "\n"        {return EOL;}
-.           {}
+.           {return (yytext[0]);}
 
 %%
